@@ -1,0 +1,66 @@
+---
+import postType from "../types/Post.ts";
+
+export interface Props {
+    post: postType;
+}
+
+const { post } = Astro.props;
+---
+
+<article>
+    <header>
+        {post.image && (<img src={post.image.src} alt={post.image.alt ?? post.title} />)}
+        <a href={post.url}><h1 class="title">{post.title}</h1></a>
+        <p class="publish-date">{post.publishDate}</p>
+    </header>
+    <p>{post.description}</p>
+    <a class="read-more" href={post.url}>Read more...</a>
+</article>
+
+<style>
+    article {
+        margin-right: 1rem;
+        background: var(--theme-colors-background-contrast);
+        color: var(--theme-colors-secondary);
+
+        max-width: 20rem;
+        width: 100%;
+        padding: 1rem;
+        border-radius: 0.5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+    
+    p {
+        margin: 0;
+    }
+
+    img {
+        width: 100%;
+        border-radius: 0.5rem;
+    }
+
+    .publish-date {
+        font-size: 0.8rem;
+        color: var(--theme-colors-secondary-dark);
+        margin-bottom: 0.5rem;
+    }
+
+    .read-more {
+        display: block;
+        margin-top: 0.5rem;
+        font-size: 0.8rem;
+        color: var(--theme-colors-secondary-dark);
+        text-decoration: underline;
+    }
+
+    .read-more:hover {
+        /* color: var(--theme-colors-secondary-dark); */
+        filter: brightness(0.2);
+        font-style: italic;
+    }
+</style>

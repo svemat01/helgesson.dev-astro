@@ -1,15 +1,11 @@
 ---
 setup: |
   import Layout from '../../layouts/BlogPost.astro'
-title: I'm Jakob, the creator of this site.
+title: No iamge post
 publishDate: 12 Sep 2021
 name: test
 value: 128
 description: Just a Hello World Post!
-image: {
-  src: https://img.helgesson.dev/me.png,
-  alt: testy testy
-}
 ---
 # test
 
