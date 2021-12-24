@@ -1,25 +1,26 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
 
-const {content} = Astro.props;
-const {title, description, publishDate, author, heroImage, permalink, alt} = content;
-console.log(content);
+const { content } = Astro.props;
+const { title, description, publishDate, author, heroImage, permalink, alt } =
+    content;
 ---
 
-<html lang={ content.lang || 'en' }>
-  <head>
-    <BaseHead title={title} description={description} permalink={permalink} />
-    <link rel="stylesheet" href={Astro.resolve('../styles/global.css')} />
-    <link rel="stylesheet" href={Astro.resolve('../styles/prism.css')} />
-  </head>
+<html lang={content.lang || "en"}>
+    <head>
+        <BaseHead {title} {description} {permalink} />
+        <link rel="stylesheet" href={Astro.resolve("../styles/prism.css")} />
+        <link rel="stylesheet" href={Astro.resolve("../styles/global.css")} />
+        <link rel="stylesheet" href={Astro.resolve("../styles/blogPost.scss")} />
+    </head>
 
-  <body>
-      <Header title={title} />
-      <slot />
-      <script>
-          console.log(content);
-      </script>
-  </body>
+    <body>
+        <div class="wrapper">
+            <Header {title} />
+            <main>
+                <slot />
+            </main>
+        </div>
+    </body>
 </html>
-

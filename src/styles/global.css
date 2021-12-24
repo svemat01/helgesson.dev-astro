@@ -1,13 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: roboto, sans-serif;
-    font-size: 1rem;
+    /* font-family: roboto, sans-serif; */
+    font-family: Montserrat, sans-serif;
+    font-size: 1.1rem;
 }
 
 :root {
-    --theme-colors-text: #efefef;
-    --theme-colors-background: radial-gradient(circle at center, #333333 0%, #2e2e2e 100%);
-    --theme-colors-background-contrast: radial-gradient(circle at center, #efefef 0%, #b8b8b8 100%);
-    --theme-colors-primary: #efefef;
+    --theme-colors-text: #dfdfdf;
+    --theme-colors-background: radial-gradient(
+        circle at center,
+        #333333 0%,
+        #2e2e2e 100%
+    );
+    --theme-colors-background-contrast: radial-gradient(
+        circle at center,
+        #dfdfdf 0%,
+        #b8b8b8 100%
+    );
+    --theme-colors-primary: #dfdfdf;
     --theme-colors-primary-dark: #b8b8b8;
     --theme-colors-secondary: #333333;
     --theme-colors-secondary-dark: #202020;
@@ -15,30 +28,48 @@ body {
 }
 
 :root {
-
-    --theme-dark-colors-text: #efefef;
-    --theme-dark-colors-background: radial-gradient(circle at center, #333333 0%, #2e2e2e 100%);
-    --theme-dark-colors-background-contrast: radial-gradient(circle at center, #efefef 0%, #b8b8b8 100%);
-    --theme-dark-colors-primary: #efefef;
+    --theme-dark-colors-text: #dfdfdf;
+    --theme-dark-colors-background: radial-gradient(
+        circle at center,
+        #333333 0%,
+        #2e2e2e 100%
+    );
+    --theme-dark-colors-background-contrast: radial-gradient(
+        circle at center,
+        #dfdfdf 0%,
+        #b8b8b8 100%
+    );
+    --theme-dark-colors-primary: #dfdfdf;
     --theme-dark-colors-primary-dark: #b8b8b8;
     --theme-dark-colors-secondary: #333333;
     --theme-dark-colors-secondary-dark: #202020;
     --theme-dark-invert: invert(0%);
 
     --theme-light-colors-text: #2e2e2e;
-    --theme-light-colors-background: radial-gradient(circle at center, #efefef 0%, #b8b8b8 100%);
-    --theme-light-colors-background-contrast: radial-gradient(circle at center, #333333 0%, #2e2e2e 100%);
+    --theme-light-colors-background: radial-gradient(
+        circle at center,
+        #dfdfdf 0%,
+        #b8b8b8 100%
+    );
+    --theme-light-colors-background-contrast: radial-gradient(
+        circle at center,
+        #333333 0%,
+        #2e2e2e 100%
+    );
     --theme-light-colors-primary: #333333;
     --theme-light-colors-primary-dark: #202020;
-    --theme-light-colors-secondary: #efefef;
+    --theme-light-colors-secondary: #dfdfdf;
     --theme-light-colors-secondary-dark: #b8b8b8;
     --theme-light-invert: invert(100%);
 }
 
-[theme='light'], .theme--light {
+[theme="light"],
+.theme--light {
     --theme-colors-text: var(--theme-light-colors-text);
     --theme-colors-background: var(--theme-light-colors-background);
-    --theme-colors-background-contrast: var(--theme-light-colors-background-contrast);
+    --theme-colors-background-contrast: var(
+        --theme-light-colors-background-contrast
+    );
     --theme-colors-primary: var(--theme-light-colors-primary);
     --theme-colors-primary-dark: var(--theme-light-colors-primary-dark);
     --theme-colors-secondary: var(--theme-light-colors-secondary);
@@ -46,10 +77,13 @@ body {
     --theme-invert: var(--theme-light-invert);
 }
 
-[theme='dark'], .theme--dark {
+[theme="dark"],
+.theme--dark {
     --theme-colors-text: var(--theme-dark-colors-text);
     --theme-colors-background: var(--theme-dark-colors-background);
-    --theme-colors-background-contrast: var(--theme-dark-colors-background-contrast);
+    --theme-colors-background-contrast: var(
+        --theme-dark-colors-background-contrast
+    );
     --theme-colors-primary: var(--theme-dark-colors-primary);
     --theme-colors-primary-dark: var(--theme-dark-colors-primary-dark);
     --theme-colors-secondary: var(--theme-dark-colors-secondary);
@@ -62,10 +96,19 @@ body {
     color: var(--theme-colors-text);
 
     margin: 0;
-
 }
 
 a {
-    color: inherit;
     text-decoration: none;
+    color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
 }

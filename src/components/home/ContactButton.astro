@@ -1,0 +1,64 @@
+---
+export interface Props {
+    name: string;
+    iconSrc: string;
+    iconAlt?: string;
+    url: string;
+    invert?: boolean;
+    style?: string;
+    target?: string;
+}
+
+const {
+    name,
+    iconSrc,
+    iconAlt = "",
+    url,
+    invert = false,
+    style = "",
+    target = "_blank",
+} = Astro.props;
+
+const classes = invert ? "invert" : "";
+console.log(name);
+---
+
+<a href={url} target={target}>
+    <div>
+        <img src={iconSrc} alt={iconAlt} class={classes} {style} />
+        <p>{name}</p>
+    </div>
+</a>
+
+<style>
+    img {
+        width: 30px;
+    }
+
+    img.invert {
+        filter: var(--theme-invert);
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+
+        padding-left: 1rem;
+
+        background: var(--theme-colors-primary);
+        color: var(--theme-colors-secondary);
+        border-radius: 1rem;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    div:hover {
+        transform: scale(1.1);
+        transform: rotate(2deg);
+    }
+
+    p {
+        margin: 1rem 0.5rem 1rem 0.5rem;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+</style>

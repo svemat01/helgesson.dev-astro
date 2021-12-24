@@ -1,18 +1,24 @@
 <header>
-    <h1><a href="/">Helgesson.Dev</a></h1>
+    <nav>
+        <h1><a href="/">Helgesson.dev</a></h1>
+    </nav>
 </header>
 
 <style>
     h1 {
         font-size: 1.75em;
         font-weight: bold;
-        margin: 0;
-        padding: 0;
+
+        padding: 0.5em;
+
         color: var(--theme-colors-secondary);
+        background: var(--theme-colors-background-contrast);
+        
+        width: fit-content;
+        /* float: right; */
+
+        /* make bottom right corner rounded */
+        border-bottom-left-radius: 0.5em;
     }
 
-    header {
-        background: var(--theme-colors-background-contrast);
-        padding: 0.5em;
-    }
 </style>

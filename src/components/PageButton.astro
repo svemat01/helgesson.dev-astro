@@ -1,0 +1,20 @@
+---
+
+export interface Props {
+    url: string;
+    invert: boolean;
+}
+
+const { post } = Astro.props;
+---
+
+<a href={post.url}>
+<slot />
+</a>
+
+<style>
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+</style>

@@ -1,0 +1,56 @@
+---
+import ContactButton from './ContactButton.astro';
+
+let socials = [
+    {
+        name: 'Dev Blog',
+        url: '/posts',
+        iconSrc: 'assets/icons/blogpost.png',
+        invert: true,
+        target: '_self'
+    },
+    {
+        name: 'Svemat01',
+        url: 'https://github.com/svemat01',
+        iconSrc: 'assets/icons/github.svg',
+        invert: true
+    },
+    {
+        name: 'Svemat01',
+        url: 'https://gitlab.com/svemat01',
+        iconSrc: 'assets/icons/gitlab.png',
+        invert: true
+    },
+    {
+        name: 'JakobHelgesson',
+        invert: true,
+        iconSrc: 'assets/icons/linkedin.png',
+        url: 'https://www.linkedin.com/in/jakobhelgesson/'
+    },
+    {
+        name: 'Svemat#5531',
+        iconSrc: 'assets/icons/discord.png',
+        invert: true,
+        url: 'https://discord.gg/RUvPQxXUUE'
+    }
+];
+---
+
+<div class="social-wrapper">
+    {socials.map( social => (
+        <ContactButton {...social} />
+    ))}
+</div>
+
+<style>
+    /* center */
+    .social-wrapper {
+        margin: 1rem auto;
+        width: 100%;
+        max-width: 30rem;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+</style>

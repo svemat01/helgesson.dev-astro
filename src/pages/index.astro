@@ -1,10 +1,8 @@
 ---
 // Component Imports
 import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import PostPreview from "../components/PostPreview.astro";
-
-import postType from "../types/Post.ts";
+import Profile from "../components/home/Profile.astro";
+import ContactList from "../components/home/ContactList.astro";
 
 interface MarkdownFrontmatter {
     publishDate: number;
@@ -20,13 +18,11 @@ let permalink = "https://helgesson.dev/";
 
 // Data Fetching: List all Markdown posts in the repo.
 
-let allPosts: postType[] = await Astro.fetchContent("./posts/*.md");
+let allPosts = Astro.fetchContent("/src/pages/posts/*.md");
 allPosts = allPosts.sort(
     (a, b) =>
         new Date(b.publishDate).valueOf() - new Date(a.publishDate).valueOf()
 );
-
-console.log(allPosts);
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -39,31 +35,18 @@ console.log(allPosts);
 
         <style>
             .wrapper {
-                margin-left: 1rem;
-            }
-
-            .posts {
                 display: flex;
-                flex-wrap: wrap;
-                gap: 1rem;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
         </style>
     </head>
 
     <body>
-        <Header />
         <div class="wrapper">
-            <main class="content">
-                <section class="intro">
-                    <h1 class="latest">{title}</h1>
-                    <p>{description}</p>
-                </section>
-                <section class="posts" aria-label="Blog post list">
-                    {allPosts.map(post => (
-                        <PostPreview {post} />
-                    ))}
-                </section>
-            </main>
+            <Profile />
+            <ContactList />
         </div>
     </body>
 </html>

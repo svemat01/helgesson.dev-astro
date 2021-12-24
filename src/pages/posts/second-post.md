@@ -3,6 +3,7 @@ setup: |
   import Layout from '../../layouts/BlogPost.astro'
 title: Hello Luc!
 publishDate: 12 Sep 2021
+published: true
 name: test
 value: 128
 description: Just a Hello World Post!
