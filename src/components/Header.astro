@@ -1,24 +1,124 @@
+---
+export type Paths = {
+    name: string;
+    path: string;
+}[];
+
+export interface Props {
+    title: string;
+    paths: Paths | undefined;
+}
+
+// with `import`s and `export`s out of the way, include the rest of the component logic here
+const {
+    title,
+    paths = [
+        {
+            name: "Home",
+            path: "/",
+        },
+    ],
+} = Astro.props;
+---
+
 <header>
     <nav>
-        <h1><a href="/">Helgesson.dev</a></h1>
+        <div class="title">
+            <h1>{title}</h1>
+            <h2 class="sub"><a href="/">Helgesson.Dev</a></h2>
+        </div>
+        <div class="paths">
+            {paths.map(({ name, path }) => (
+                <h2 class="sec">
+                    <a href={path}>{name}</a>
+                </h2>
+            ))}
+        </div>
     </nav>
+    <hr class="solid" />
 </header>
 
-<style>
-    h1 {
-        font-size: 1.75em;
-        font-weight: bold;
+<style lang="scss">
+    $media-tablet: 800px;
 
-        padding: 0.5em;
+    header {
+        width: 100%;
+        max-width: 800px;
 
-        color: var(--theme-colors-secondary);
-        background: var(--theme-colors-background-contrast);
-        
-        width: fit-content;
-        /* float: right; */
+        margin: 0 auto;
+        margin-top: 5rem;
 
-        /* make bottom right corner rounded */
-        border-bottom-left-radius: 0.5em;
+        padding: 0 1rem;
+
+        @media (min-width: $media-tablet) {
+            padding: 0;
+        }
     }
 
+    hr.solid {
+        border: 0;
+        margin-top: 0.5rem;
+        border-top: 0.4rem solid var(--theme-colors-primary);
+
+        padding-top: 2rem;
+    }
+
+    nav {
+        padding-left: 1rem;
+        display: flex;
+        justify-content: space-between;
+        /* justify-content: flex-end; */
+    }
+
+    div.paths {
+        display: flex;
+        /* justify-content: flex-end; */
+        gap: 1rem;
+        padding-right: 1.5rem;
+    }
+
+    .title {
+        padding-left: 1.5rem;
+
+        h1 {
+            font-size: 4rem;
+            font-style: normal;
+            font-weight: bold;
+            position: relative;
+
+            &::before {
+                content: "/";
+                color: var(--theme-colors-primary);
+                font-weight: normal;
+                position: absolute;
+                left: -1.5rem;
+            }
+        }
+
+        h2.sub {
+            font-size: 1.5rem;
+            font-style: normal;
+            font-weight: bold;
+            color: var(--theme-colors-primary);
+
+            align-self: flex-end;
+        }
+    }
+
+    h2 {
+        a:hover {
+            color: var(--theme-colors-text-dark);
+        }
+
+        margin-top: -0.5rem;
+
+        &.sec {
+            font-size: 2rem;
+            font-style: normal;
+            font-weight: bold;
+            color: var(--theme-colors-text);
+
+            align-self: flex-end;
+        }
+    }
 </style>

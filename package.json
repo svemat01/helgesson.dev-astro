@@ -10,7 +10,8 @@
   },
   "devDependencies": {
     "@astrojs/renderer-preact": "^0.3.1",
-    "astro": "^0.21.10",
+    "@astrojs/renderer-svelte": "^0.3.0",
+    "astro": "^0.22.1",
     "prettier-plugin-astro": "^0.0.11"
   }
 }

@@ -8,10 +8,13 @@
 
 // @ts-check
 export default /** @type {import('astro').AstroUserConfig} */ ({
-  // Enable the Preact renderer to support Preact JSX components.
-  renderers: ['@astrojs/renderer-svelte'],
+    // Enable the Preact renderer to support Preact JSX components.
+    renderers: ["@astrojs/renderer-svelte"],
 
-  buildOptions: {
-    site: 'https://helgesson.dev'
-  }
+    buildOptions: {
+        site: "https://helgesson.dev",
+    },
+    devOptions: {
+        hostname: "0.0.0.0",
+    },
 });

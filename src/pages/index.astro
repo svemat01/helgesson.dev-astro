@@ -30,7 +30,8 @@ allPosts = allPosts.sort(
 
 <html lang="en" theme="dark">
     <head>
-        <BaseHead {title} {description} {permalink} />
+        <!-- prettier-ignore  -->
+        <BaseHead title={title} description={description} permalink={permalink} />
         <link rel="stylesheet" href={Astro.resolve("../styles/global.css")} />
 
         <style>
@@ -39,6 +40,7 @@ allPosts = allPosts.sort(
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
+                padding-top: 2rem;
             }
         </style>
     </head>

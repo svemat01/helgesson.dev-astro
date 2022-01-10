@@ -1,31 +1,18 @@
-.wrapper {
-    display: flex;
-    flex-direction: column;
+$media-tablet: 800px;
 
-    min-height: 100vh;
+// .wrapper {
+//     display: flex;
+//     flex-direction: column;
 
-}
+// }
 
 main {
-    margin: 0 10rem;
-    padding-top: 1rem;
-    width: calc(100% - 1rem);
+    padding: 0 1rem;
+    padding-bottom: 6rem;
+    margin: 0 auto;
+
+    width: 100%;
     max-width: 800px;
-}
-
-@media (min-width: 780px) {
-    .wrapper {
-        margin: 0 auto;
-    }
-
-    main {
-        margin: 0 auto;
-        width: 100%
-    }
-
-    Header {
-        align-self: flex-end;
-    }
 }
 
 pre {
@@ -33,23 +20,82 @@ pre {
 }
 
 p {
-    max-width: 80ch;
+    // max-width: 80ch;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
 }
 
 /* ---- */
 
 .wrapper {
-    main h1::before {
-        content: "# ";
-        color: var(--theme-colors-secondary-dark);
-        // position: absolute;
-        // left: 2.3rem;
+    main h1 {
+        position: relative;
+
+        &::before {
+            text-align: right;
+            content: "#";
+            color: var(--theme-colors-primary-dark);
+            position: absolute;
+            left: -2.3rem;
+            top: -0.025rem;
+        }
+
+        @media (max-width: $media-tablet) {
+            &::before {
+                position: initial;
+                margin-right: 0.4rem;
+            }
+        }
     }
 
-    main h2::before {
-        content: "## ";
-        color: var(--theme-colors-secondary-dark);
-        // position: absolute;
-        // left: 1.6rem;
+    main h2 {
+        position: relative;
+
+        &::before {
+            text-align: right;
+            content: "##";
+            color: var(--theme-colors-primary-dark);
+            position: absolute;
+            left: -3.2rem;
+            top: -0.025rem;
+        }
+
+        @media (max-width: $media-tablet) {
+            &::before {
+                position: initial;
+                margin-right: 0.4rem;
+            }
+        }
+    }
+
+    main h3,
+    main h4,
+    main h5,
+    main h6 {
+        position: relative;
+
+        &::before {
+            text-align: right;
+            content: "###";
+            color: var(--theme-colors-primary-dark);
+            position: absolute;
+            left: -3.6rem;
+            top: -0.025rem;
+        }
+
+        @media (max-width: $media-tablet) {
+            &::before {
+                position: initial;
+                margin-right: 0.4rem;
+            }
+        }
+    }
+
+    main a {
+        color: var(--theme-colors-primary-dark);
+
+        &:hover {
+            color: var(--theme-colors-primary-light);
+        }
     }
 }

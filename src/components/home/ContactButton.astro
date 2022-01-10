@@ -23,41 +23,55 @@ const classes = invert ? "invert" : "";
 console.log(name);
 ---
 
-<a href={url} target={target}>
+<a href={url} {target}>
     <div>
         <img src={iconSrc} alt={iconAlt} class={classes} {style} />
         <p>{name}</p>
     </div>
 </a>
 
-<style>
+<style lang="scss">
     img {
-        width: 30px;
+        width: 2.5rem;
     }
 
-    img.invert {
-        filter: var(--theme-invert);
+    /* img {
+        box-shadow: inset 0px 4px 4px 10000px #34d399;
+    } */
+
+    img {
+        fill: var(--theme-colors-primary);
     }
 
     div {
         display: flex;
         align-items: center;
 
-        padding-left: 1rem;
+        padding: 1rem;
+        color: var(--theme-colors-primary);
 
-        background: var(--theme-colors-primary);
-        color: var(--theme-colors-secondary);
-        border-radius: 1rem;
-        transition: transform 0.2s ease-in-out;
+        border: 0.2rem solid var(--theme-colors-primary);
+
+        border-radius: 0.5rem;
+        transition: all 0.2s ease-in-out;
     }
 
     div:hover {
-        transform: scale(1.1);
-        transform: rotate(2deg);
+        /* transform: scale(1.1);
+        transform: rotate(2deg); */
+
+        background-color: var(--theme-colors-primary);
+        color: var(--theme-colors-background);
+
+        img {
+            filter: brightness(0) saturate(100%) invert(0%) sepia(0%)
+                saturate(6553%) hue-rotate(176deg) brightness(95%) contrast(70%);
+        }
     }
 
     p {
-        margin: 1rem 0.5rem 1rem 0.5rem;
+        /* margin: 1rem 0.5rem 1rem 0.5rem; */
+        padding-left: 1rem;
         font-weight: bold;
         font-size: 1.5rem;
     }

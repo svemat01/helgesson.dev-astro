@@ -1,25 +1,30 @@
 ---
-const url = 'https://s.gravatar.com/avatar/9baf76260b57cb46df1212a353c1a8bb?s=400';
+const url =
+    "https://s.gravatar.com/avatar/9baf76260b57cb46df1212a353c1a8bb?s=400";
 ---
 
 <!-- svelte-ignore a11y-img-redundant-alt -->
 <img src={url} alt="Profile picture of Jakob" />
 <h1>Jakob Helgesson</h1>
-<h2>Svemat01</h2>
+<h2>@svemat01</h2>
 
 <style>
     img {
         border-radius: 50%;
         max-width: 15rem;
-        border: 0.3rem solid var(--theme-colors-primary);
+        border: 0.3rem solid var(--theme-colors-text);
     }
 
     h1 {
+        color: var(--theme-colors-text);
         margin-top: 1rem;
         margin-bottom: 0.5rem;
+        font-size: 2.2rem;
     }
 
     h2 {
-        color: var(--theme-colors-primary);
+        color: var(--theme-colors-text-dark);
+        font-weight: normal;
+        font-size: 1.4rem;
     }
 </style>

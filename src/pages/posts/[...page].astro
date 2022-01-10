@@ -7,7 +7,7 @@ import { getPosts } from "../../util/getPosts.ts";
 
 export async function getStaticPaths({ paginate, rss }) {
     // Load your data with fetch(), Astro.fetchContent(), etc.
-    const allPosts = await getPosts(Astro.fetchContent('./*.md'))
+    const allPosts = await getPosts(Astro.fetchContent("./*.md"));
     // Return a paginated collection of paths for all posts
     const pagination = paginate(allPosts, { pageSize: 10 });
 
@@ -37,13 +37,23 @@ let permalink = "https://helgesson.dev/";
 
 <html lang="en" theme="dark">
     <head>
-        <!-- @ts-ignore -->
-        <BaseHead {title} {description} {permalink} />
-        <link rel="stylesheet" href={Astro.resolve("../../styles/global.css")} />
+        <!-- prettier-ignore  -->
+        <BaseHead title={title} description={description} permalink={permalink} />
+        <link rel="stylesheet" href={Astro.resolve("../../styles/global.css")}
+        />
 
-        <style>
+        <style lang="scss">
+            $media-tablet: 800px;
+
             .wrapper {
-                margin: 0 1rem;
+                width: 100%;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 0 1rem;
+
+                @media (min-width: $media-tablet) {
+                    padding: 0 2rem;
+                }
             }
 
             .posts {
@@ -54,11 +64,7 @@ let permalink = "https://helgesson.dev/";
                 width: 100%;
                 align-items: center;
 
-                padding-top: 2rem
-            }
-
-            @media (min-width: 768px) {
-                .posts {
+                @media (min-width: $media-tablet) {
                     gap: 2rem;
                 }
             }
@@ -66,7 +72,15 @@ let permalink = "https://helgesson.dev/";
     </head>
 
     <body>
-        <Header />
+        <Header
+            title={"Posts"}
+            paths={[
+                {
+                    name: "Home",
+                    path: "/",
+                },
+            ]}
+        />
         <div class="wrapper">
             <main class="content">
                 <!-- <section class="intro">
@@ -79,8 +93,8 @@ let permalink = "https://helgesson.dev/";
                     ))}
                 </section>
 
-                    {page.url.prev && <a href={page.url.prev}>Prev</a>}
-                    {page.url.next && <a href={page.url.next}>Next</a>}
+                {page.url.prev && <a href={page.url.prev}>Prev</a>}
+                {page.url.next && <a href={page.url.next}>Next</a>}
             </main>
         </div>
     </body>
