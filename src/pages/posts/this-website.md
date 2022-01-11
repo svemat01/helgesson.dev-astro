@@ -9,16 +9,16 @@ draft: false
 author: jakob
 ---
 # Todays Web Dev and making this website
-Making this website was a very intressting process including me learning many new ways of website development. Our usual way of making websites has often been to just create a new repo and throw in a couple of html css and js files, but todays internet are changing, we want more advanced websites with high levels of interactivity.
+Making this website was a very interesting process including me learning many new ways of website development. Our usual way of making websites has often been to just create a new repo and throw in a couple of html css and js files, but todays internet are changing, we want more advanced websites with high levels of interactivity.
 
 These needs for high levels of interactivity made have given sparks to projects such as React, Vue, Svelte and Angular. These projects are all classed under the same group, javascript frameworks.
 
 ## The big problem
 With many javascript frameworks, the initial html page is basically empty and all the content has to be loaded in with the help of our javascript frameworks.
 
-This is not only a problem that we put often unnessecary extra load on the device loading the website. It can also worsen our SEO score resulting in us getting ranked lower in search results. While some SEO crawler including google's can actually render a javascript framework based website, it will still result in a lower score since it's widely agreed within the SEO community that the speed to load the page can be hugely important.
+This is not only a problem that we put often unnecessary extra load on the device loading the website. It can also worsen our SEO score resulting in us getting ranked lower in search results. While some SEO crawler including google's can actually render a javascript framework based website, it will still result in a lower score since it's widely agreed within the SEO community that the speed to load the page can be hugely important.
 
-The bigger problem comes with SEO crawlers that dont have javascript rendering support, in that case we might not be indexed at all since the page would just be empty.
+The bigger problem comes with SEO crawlers that have javascript rendering support, in that case we might not be indexed at all since the page would just be empty.
 
 ## The solution
 How can we resolve this issue then?
