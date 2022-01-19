@@ -4,7 +4,7 @@ setup: |
   import Link from '../../components/Link.astro'
 title: Todays Web Dev and making this website
 description: The technologies and ideas behind this website.
-publishDate: 10 Dec 2022
+publishDate: 10 Jan 2022
 draft: false
 author: jakob
 ---

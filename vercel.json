@@ -9,6 +9,11 @@
             "source": "/devtalk",
             "destination": "https://discord.gg/RUvPQxXUUE",
             "permanent": true
+        },
+        {
+            "source": "/posts",
+            "destination": "/p",
+            "permanent": true
         }
     ]
 }

@@ -16,14 +16,6 @@ let title = "Helgesson.Dev";
 let description = "The perfect starter for your perfect blog.";
 let permalink = "https://helgesson.dev/";
 
-// Data Fetching: List all Markdown posts in the repo.
-
-let allPosts = Astro.fetchContent("/src/pages/posts/*.md");
-allPosts = allPosts.sort(
-    (a, b) =>
-        new Date(b.publishDate).valueOf() - new Date(a.publishDate).valueOf()
-);
-
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
