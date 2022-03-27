@@ -1,0 +1,12 @@
+---
+import { getPosts } from "../util/getPosts";
+
+const allPosts = await getPosts(Astro.fetchContent("./p/*.md"));
+const output = JSON.stringify(allPosts.map((post) => ({
+            title: post.title,
+            description: post.description,
+            link: post.url,
+            pubDate: new Date(post.publishDate).toString(),
+        })));
+---
+{output}
